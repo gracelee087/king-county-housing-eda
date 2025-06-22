@@ -1,7 +1,7 @@
 # 🏠 King County Housing Data Analysis
 
 
-## 📘 Project Overview  
+## 📘 Project Overview
 This project is part of a Data Science Bootcamp and focuses on **Exploratory Data Analysis (EDA)** of King County housing data.  
 The main objective is to extract actionable insights and make recommendations for a specific client profile.
 
