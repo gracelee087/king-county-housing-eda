@@ -14,12 +14,13 @@ The main objective is to extract actionable insights and make recommendations fo
 - **Demographics**: Single, Male, No prior home purchases  
 - **Budget**: $411K – $707K (mid-range)  
 - **Priorities**: Location > Size  
-- **Preferred Neighborhoods**: Capitol Hill, First Hill, Downtown, Belltown (walkable and vibrant areas)
+- **Preferred Neighborhoods**: Walkable and vibrant areas
 
 ---
 
 ## 🛠 Project Structure
 
+```
 king-county-eda/
 ├── data/ # Raw CSV data (excluded from repo)
 ├── notebooks/
@@ -29,6 +30,7 @@ king-county-eda/
 │ └── EDA_FINAL.pdf # Client presentation (final slides)
 ├── column_names.md # Dataset column descriptions
 ├── README.md # Project overview and documentation
+```
 
 ---
 
