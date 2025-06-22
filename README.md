@@ -1,98 +1,74 @@
-# ds-project-template
-
-Template for creating ds simple projects
-
-## Requirements
-
-- pyenv
-- python==3.11.3
-
-## Setup
-
-One of the first steps when starting any data science project is to create a virtual environment. For this project you have to create this environment from scratch yourself. However, you should be already familiar with the commands you will need to do so. The general workflow consists of... 
-
-* setting the python version locally to 3.11.3
-* creating a virtual environment using the `venv` module
-* activating your newly created environment 
-* upgrading `pip` (This step is not absolutely necessary, but will save you trouble when installing some packages.)
-* installing the required packages via `pip`
-
-At the end, you want to make sure that people who are interested in your project can create an identical environment on their own computer in order to be able to run your code without running into errors. Therefore you can create a `requirements file` and add it to your repository. You can create such a file by running the following command: 
-
-```bash
-pip freeze > requirements.txt
-```
-
-*Note: In rare case such a requirements file created with `pip freeze` might not ensure that another (especially M1 chip) user can install and execute it properly. This can happen if libraries need to be compiled (e.g. SciPy). Then it also depends on environment variables and the actual system libraries.*
-
-### Unit testing (Optional)
-
-If you write python scripts for your data processing methods, you can also write unit tests. In order to run the tests execute in terminal:
-
-```bash
-pytest
-```
-
-This command will execute all the functions in your project that start with the word **test**.
-
-## Set up your Environment
-This repo contains a requirements.txt file with a list of all the packages and dependencies you will need.
-
-Before you can start with plotly in Jupyter Lab you have to install node.js (if you haven't done it before).
-- Check **Node version**  by run the following commands:
-    ```sh
-    node -v
-    ```
-    If you haven't installed it yet, begin at `step_1`. Otherwise, proceed to `step_2`.
+# 🏠 King County Housing Data Analysis
 
 
-### **`macOS`** type the following commands : 
+## 📘 Project Overview  
+This project is part of a Data Science Bootcamp and focuses on **Exploratory Data Analysis (EDA)** of King County housing data.  
+The main objective is to extract actionable insights and make recommendations for a specific client profile.
 
+- **Dataset**: King County Housing Data (via `eda` schema)
+- **Tools Used**: Python, Pandas, Seaborn, Matplotlib, SQL (DBeaver + SQLAlchemy), Jupyter Notebook
 
-- `Step_1:` Update Homebrew and install Node by following commands:
-    ```sh
-    brew update
-    brew install node
-    ```
+### 👤 Client Profile
 
-- `Step_2:` Install the virtual environment and the required packages by following commands:
+- **Name**: Nicole Johnson  
+- **Demographics**: Single, Male, No prior home purchases  
+- **Budget**: $411K – $707K (mid-range)  
+- **Priorities**: Location > Size  
+- **Preferred Neighborhoods**: Capitol Hill, First Hill, Downtown, Belltown (walkable and vibrant areas)
 
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/bin/activate
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-### **`WindowsOS`** type the following commands :
+---
 
+## 🛠 Project Structure
 
-- `Step_1:` Update Chocolatey and install Node by following commands:
-    ```sh
-    choco upgrade chocolatey
-    choco install nodejs
-    ```
+king-county-eda/
+├── data/ # Raw CSV data (excluded from repo)
+├── notebooks/
+│ ├── EDA.ipynb # Main EDA notebook
+│ └── 1_Fetching_the_data_eda.ipynb
+├── presentation/
+│ └── EDA_FINAL.pdf # Client presentation (final slides)
+├── column_names.md # Dataset column descriptions
+├── README.md # Project overview and documentation
 
-- `Step_2:` Install the virtual environment and the required packages by following commands.
+---
 
-   For `PowerShell` CLI :
+## 🔍 Methods & Libraries
 
-    ```PowerShell
-    pyenv local 3.11.3
-    python -m venv .venv
-    .venv\Scripts\Activate.ps1
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
+### 🗂️ Database & Querying
+- DBeaver, SQL, SQLAlchemy for data extraction and inspection
 
-    For `Git-Bash` CLI :
-  
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/Scripts/activate
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
- 
+### 🐍 Python Libraries
+- `pandas`: Data cleaning, transformation, handling missing values (`isna()`), basic stats (`describe()`)
+- `numpy`: Numerical operations
+- `matplotlib`, `seaborn`: Visualization (histograms, scatterplots)
+- `datetime`: Date parsing and year extraction (`pd.to_datetime()`, `.dt.year`)
 
+### 🔎 Key Analytical Techniques
+- `df.describe()` – Summary statistics (mean, std, quartiles)
+- `sns.histplot()` – Price distribution with KDE
+- `sns.scatterplot()` – Price vs. square footage analysis
+- Derived metrics: `price_per_sqft` for standardized comparison
+- Time series analysis based on year of sale
+
+---
+
+## 📎 Deliverables
+
+- ✅ Jupyter Notebooks with full EDA and insights
+- ✅ GitHub repo with organized file structure
+
+---
+
+## 👩‍💼 Assumptions
+
+- **City Core**: Defined using ZIP codes in Downtown, Belltown, Capitol Hill, and First Hill
+- **Affordability**: Determined by Nicole’s budget range and average square footage
+- **Contextual Factors**: Economic indicators (employment, interest rate) referenced from 2014–2015 data
+
+---
+
+## 📌 Future Improvements
+
+- 📅 Expand analysis to include 2016 housing data
+- 🤖 Apply machine learning for price prediction
+- 📈 Include rent-vs-buy decision analysis for broader insights
